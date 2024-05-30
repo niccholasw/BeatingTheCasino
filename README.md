@@ -8,7 +8,7 @@ There are multiple rules for different casinos, however we can generalise most o
   1. A common rule is for dealer to stand on all 17s, however, some casinos play hit on soft 17, stand on hard 17 will make this changeable, however, we will use stand on all 17 as Aucklnad casino uses this.
   2. The amount of standard playing decks used cary from casino to casnio, usually from around 4-8 and the more decks, the more the house wins as the cars are more varied. We will use 6 decks as it is most common, however this can be changed as well in config.
   3. Standard plays are hit, stand, split (splitting doubles) and double down (double bet after seeing first two cards, then can only hit once after). Some caisnos allow double down after split. 
-  4. When a player wins they are paid out 2-1 (i.e. 2x their original bet), apart from when they win with BlackJack (21), then they are paid out 3-1.
+  4. When a player wins they are paid out 2-1 (i.e. 2x their original bet), apart from when they win with BlackJack (21), then they are paid out 3-1 (3x their original bet).
   5. Player always hits first, and therefore, if they bust and the dealer also busts, the house still wins.
 
 
