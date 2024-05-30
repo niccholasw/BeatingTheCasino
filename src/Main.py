@@ -38,7 +38,7 @@ def game():
             player_hand.append(playing_deck.pop(0))
         
         # While the dealer is on a soft 17, hit, otherwise dealer stands
-        while sum(dealer_hand && deal) < 18:
+        while sum(dealer_hand) < 18:
             exit = False
                 
             if sum(dealer_hand) == 17: 
