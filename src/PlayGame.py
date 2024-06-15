@@ -3,10 +3,10 @@ def play_hand(playing_deck, dealer_soft17):
         dealer_hand = []
         player_hand = []
         
-        dealer_hand.append(playing_deck.pop(0))
         player_hand.append(playing_deck.pop(0))
         dealer_hand.append(playing_deck.pop(0))
         player_hand.append(playing_deck.pop(0))
+        dealer_hand.append(playing_deck.pop(0))
         
         for card in player_hand: 
             if card == 11:
@@ -54,13 +54,18 @@ def play_hand(playing_deck, dealer_soft17):
         # Game outcomes: 1. Player wins by getting higher then dealer 2. Player wins by dealer bust 3. Dealer wins by dealer higher than player 4. Dealer wins by player bust 5. Both 21 draw
         # 1=Playerwin, 0=draw, -1=Dealerwin
         
+        print('player hand', player_hand)
+        print('dealer hand', dealer_hand)
+        
         if sum(player_hand) > 21:
-            return -1;
+            return -1
         elif sum(dealer_hand) > 21:
-            return 1;
+            return 1
         elif sum(player_hand) > sum(dealer_hand):
             return 1
         elif sum(dealer_hand) > sum(player_hand):
             return -1
+        elif sum(player_hand) == 21:
+            return 1
         else:
             return 0

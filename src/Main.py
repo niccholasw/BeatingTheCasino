@@ -1,8 +1,8 @@
 # Config options
 num_decks = 6
-shuffle_at_perc = 25
+shuffle_at_perc = 75
 dealer_soft17 = False
-games = 100000
+games = 10
 
 
 from NewDeck import new_deck
@@ -23,10 +23,13 @@ for i in range(0, games):
         
     if result == 1:
             wins += 1
+            print('win')
     if result == 0:
             draws += 1
+            print('draw')
     if result == -1:
             losses += 1
+            print('lose')
    
 win_percentage = round((wins / games) * 100, 2)
 lose_percentage = round((losses / games) * 100, 2)
