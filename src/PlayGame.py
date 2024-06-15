@@ -14,8 +14,7 @@ def play_hand(playing_deck, dealer_soft17):
                 
         # Use strategy here
         from BasicStrategy import basic_strategy
-        
-        play = 3
+        from CheckOverflow import check_overflow
         
         while True:
             play = basic_strategy(player_hand, dealer_hand, soft)
@@ -24,10 +23,13 @@ def play_hand(playing_deck, dealer_soft17):
             elif play == 2:
                 player_hand.append(playing_deck.pop(0))
                 # bet *= 2
-                break
+                # break
             elif play == 0:
+                # print(player_hand)
                 break
-                            
+            
+            player_hand, soft = check_overflow(player_hand, soft)
+                  
         
         # While the dealer is on a soft 17, hit, otherwise dealer stands
         while sum(dealer_hand) < 18:

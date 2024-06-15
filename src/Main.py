@@ -2,7 +2,7 @@
 num_decks = 6
 shuffle_at_perc = 25
 dealer_soft17 = False
-games = 1000000
+games = 100000
 
 
 from NewDeck import new_deck
