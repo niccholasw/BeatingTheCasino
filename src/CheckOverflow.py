@@ -1,13 +1,13 @@
 def check_overflow(hand, soft):
-
+    handchanged = False
     if (sum(hand) > 21) & soft:
         for i, card in enumerate(hand):
             if (card == 11):
+                if handchanged:
+                    soft = True
+                    return hand, soft
                 hand[i] = 1
-                for card in hand:
-                    if (card == 11):
-                        soft = True
-                        return hand, soft
-                soft = False
+                handchanged = True
+        soft = False
     
     return hand, soft

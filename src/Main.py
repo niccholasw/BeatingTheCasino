@@ -13,24 +13,25 @@ playing_deck = new_deck(num_decks)
 wins = 0
 losses = 0
 draws = 0
-
-for i in range(0, games):
-        
-    if (float(len(playing_deck)) / (52 * num_decks)) * 100 < shuffle_at_perc:
-        playing_deck = new_deck(num_decks)
-        
-    result = play_hand(playing_deck, dealer_soft17)
-        
-    if result == 1:
+try:
+    for i in range(0, games):
+        if (float(len(playing_deck)) / (52 * num_decks)) * 100 < shuffle_at_perc:
+            playing_deck = new_deck(num_decks)
+            
+        result = play_hand(playing_deck, dealer_soft17)
+            
+        if result == 1:
             wins += 1
             # print('win')
-    if result == 0:
+        if result == 0:
             draws += 1
             # print('draw')
-    if result == -1:
+        if result == -1:
             losses += 1
             # print('lose')
-   
+except BaseException as e:
+    print(f"Caught an unexpected error: {e}")
+    
 win_percentage = round((wins / games) * 100, 2)
 lose_percentage = round((losses / games) * 100, 2)
 draw_percentage = round(100 - (win_percentage + lose_percentage), 2)

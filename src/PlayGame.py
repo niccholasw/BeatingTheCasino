@@ -27,16 +27,20 @@ def play_hand(playing_deck, dealer_soft17):
                 # bet *= 2
                 # break
             elif play == 0:
-                # print(player_hand)
                 break
             
-                  
+        soft_dealer = False   
+        for card in dealer_hand: 
+            if card == 11:
+                soft_dealer = True;
         
         # While the dealer is on a soft 17, hit, otherwise dealer stands
         while sum(dealer_hand) < 18:
             exit = False
                 
-            if sum(dealer_hand) == 17 & dealer_soft17: 
+            check_overflow(dealer_hand, soft_dealer)    
+            
+            if (sum(dealer_hand) == 17) & dealer_soft17: 
                 exit = True;
                 for i, card in enumerate(dealer_hand):
                     if (card == 11):
