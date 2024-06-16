@@ -17,6 +17,8 @@ def play_hand(playing_deck, dealer_soft17):
         from CheckOverflow import check_overflow
         
         while True:
+            player_hand, soft = check_overflow(player_hand, soft)
+            
             play = basic_strategy(player_hand, dealer_hand, soft)
             if play == 1:
                 player_hand.append(playing_deck.pop(0))
@@ -28,7 +30,6 @@ def play_hand(playing_deck, dealer_soft17):
                 # print(player_hand)
                 break
             
-            player_hand, soft = check_overflow(player_hand, soft)
                   
         
         # While the dealer is on a soft 17, hit, otherwise dealer stands
@@ -42,7 +43,7 @@ def play_hand(playing_deck, dealer_soft17):
                         dealer_hand[i] = 1
                         exit = False;
                         
-            elif sum(dealer_hand) >= 16:
+            elif sum(dealer_hand) > 16:
                 exit = True;
             
             
@@ -54,8 +55,8 @@ def play_hand(playing_deck, dealer_soft17):
         # Game outcomes: 1. Player wins by getting higher then dealer 2. Player wins by dealer bust 3. Dealer wins by dealer higher than player 4. Dealer wins by player bust 5. Both 21 draw
         # 1=Playerwin, 0=draw, -1=Dealerwin
         
-        print('player hand', player_hand)
-        print('dealer hand', dealer_hand)
+        # print('player hand', player_hand)
+        # print('dealer hand', dealer_hand)
         
         if sum(player_hand) > 21:
             return -1
