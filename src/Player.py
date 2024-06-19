@@ -1,8 +1,10 @@
 class Player:
-    def __init__(self, bal):
+        
+    def __init__(self, bal, bet):
         self.hand = []
         self.soft = False
         self.bal = bal
+        self.bet_amount = bet
         
     def get_total(self):
         return sum(self.hand)
