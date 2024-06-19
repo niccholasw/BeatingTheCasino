@@ -1,76 +1,52 @@
-def play_hand(playing_deck, dealer_soft17):
-        soft = False
-        dealer_hand = []
-        player_hand = []
+def play_hand(player, dealer, playing_deck):
         
-        player_hand.append(playing_deck.pop(0))
-        dealer_hand.append(playing_deck.pop(0))
-        player_hand.append(playing_deck.pop(0))
-        dealer_hand.append(playing_deck.pop(0))
-        
-        for card in player_hand: 
-            if card == 11:
-                soft = True;
+        player.hand.append(playing_deck.pop(0))
+        dealer.hand.append(playing_deck.pop(0))
+        player.hand.append(playing_deck.pop(0))
+        dealer.hand.append(playing_deck.pop(0))
                 
         # Use strategy here
         from BasicStrategy import basic_strategy
         from CheckOverflow import check_overflow
         
+        player.is_soft() # Inital check for players aces
+        
         while True:
-            player_hand, soft = check_overflow(player_hand, soft)
+            player.hand, player.soft = check_overflow(player.hand, player.soft)
             
-            play = basic_strategy(player_hand, dealer_hand, soft)
+            play = basic_strategy(player.hand, dealer.hand, player.soft)
             if play == 1:
-                player_hand.append(playing_deck.pop(0))
+                player.hand.append(playing_deck.pop(0))
             elif play == 2:
-                player_hand.append(playing_deck.pop(0))
+                player.hand.append(playing_deck.pop(0))
                 # bet *= 2
                 # break
             elif play == 0:
                 break
-            
-        soft_dealer = False   
-        for card in dealer_hand: 
-            if card == 11:
-                soft_dealer = True;
+
+        dealer.is_soft() # Inital check for dealers aces
         
-        # While the dealer is on a soft 17, hit, otherwise dealer stands
-        while sum(dealer_hand) < 18:
-            exit = False
-                
-            check_overflow(dealer_hand, soft_dealer)    
+        while dealer.get_total() < 17:
             
-            if (sum(dealer_hand) == 17) & dealer_soft17: 
-                exit = True;
-                for i, card in enumerate(dealer_hand):
-                    if (card == 11):
-                        dealer_hand[i] = 1
-                        exit = False;
-                        
-            elif sum(dealer_hand) > 16:
-                exit = True;
+            dealer.hand, dealer.soft = check_overflow(dealer.hand, dealer.soft)    
             
-            
-            if exit:
-                break
-            
-            dealer_hand.append(playing_deck.pop(0))
+            dealer.hand.append(playing_deck.pop(0))
         
         # Game outcomes: 1. Player wins by getting higher then dealer 2. Player wins by dealer bust 3. Dealer wins by dealer higher than player 4. Dealer wins by player bust 5. Both 21 draw
         # 1=Playerwin, 0=draw, -1=Dealerwin
         
-        # print('player hand', player_hand)
-        # print('dealer hand', dealer_hand)
+        # print('player.hand', player.hand)
+        # print('dealer.hand', dealer.hand)
         
-        if sum(player_hand) > 21:
+        if player.get_total() > 21:
             return -1
-        elif sum(dealer_hand) > 21:
+        elif dealer.get_total() > 21:
             return 1
-        elif sum(player_hand) > sum(dealer_hand):
+        elif player.get_total()  > dealer.get_total():
             return 1
-        elif sum(dealer_hand) > sum(player_hand):
+        elif dealer.get_total() > player.get_total():
             return -1
-        elif sum(player_hand) == 21:
+        elif (player.get_total() == 21) & ~(dealer.get_total() == 21):
             return 1
         else:
             return 0
