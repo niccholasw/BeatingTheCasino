@@ -19,8 +19,8 @@ def play_hand(player, dealer, playing_deck):
                 player.hand.append(playing_deck.pop(0))
             elif play == 2:
                 player.hand.append(playing_deck.pop(0))
-                player.dd = True
-                break
+                # player.dd = True
+                # break
             elif play == 0:
                 break
 
