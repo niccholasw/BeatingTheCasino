@@ -24,22 +24,24 @@ def basic_strategy(player_hand, dealer_hand, soft):
     if soft: # soft is if player has an ace or not
         if sum(player_hand) in [12, 13, 14]:
             if dealer_hand[0] in [5, 6]:
-              return 2
+                return 2
             return 1
         if sum(player_hand) in [15, 16]:
             if dealer_hand[0] in [4, 5, 6]:
-              return 2
+                return 2
             return 1
         if sum(player_hand) == 17:
             if dealer_hand[0] in [3, 4, 5, 6]:
-              return 2
+                return 2
             return 1
         if sum(player_hand) == 18:
             if dealer_hand[0] in [2, 3, 4, 5, 6]:
-              return 2
+                return 2
             if dealer_hand[0] in [9, 10, 11]:
-              return 1
+                return 1
             return 0
+        if (sum(player_hand) == 19) & (dealer_hand[0] == 6):
+            return 2
         if sum(player_hand) >= 19:
             return 0
 
