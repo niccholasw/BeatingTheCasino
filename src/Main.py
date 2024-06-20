@@ -5,7 +5,7 @@ def main():
     # Config options
     num_decks = 6
     shuffle_at_perc = 50
-    games = 100000
+    games = 1000000
         
     # Init
     playing_deck = new_deck(num_decks)
