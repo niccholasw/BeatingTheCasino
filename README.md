@@ -18,7 +18,7 @@ Strategies so far:
 
 ![Alt text](assets/basic_strategy_chart.png)
 
-3. Card Counting - +1 for cards 2-6, 0 for cards 7-9, -1 for cards > 9 and depending on total count there are more high count cards or low count cards in the deck signifying when to bet more or less.
+32. Card Counting - +1 for cards 2-6, 0 for cards 7-9, -1 for cards > 9 and depending on total count there are more high count cards or low count cards in the deck signifying when to bet more or less.
 
 NOTES:
 Starting bal -> $1000
@@ -32,8 +32,8 @@ Games played -> 100,000,000
 This is the stats for player winning with no doubling down or splitting.
 This shows that the players expected win rate is 42.43% and clearly over a long period of time they do not expect to win. Without doubling down or splitting, the player is at a significant disadvantage.
 
-By introducing doubling down, the player can bet more money on hands that are more likely to win, which means the player should expect to lose less and even win in some cases as they can leverage better hands to win more. This does not however mean that the player wins, as even with doubling down, the casino has an edge due to the player going before the dealer.
+By introducing doubling down, the player can bet more money on hands that are more likely to win, which means the player should expect to lose less and even win in some cases as they can leverage better hands to win more. This does not however mean that the player wins in the long run, as even with doubling down, the casino has an edge due to the player going before the dealer.
 
-This means that even with perfect basic strategy in the long run its a matter of when the player loses. I ran 10000 simulations and plotted them over a histogram to try and find on average when a player can expect to lose. As shown below, I needed to perform a log transform on the data, as there are no negative values for games played.
+This means that even with perfect basic strategy in the long run its simply a matter of 'when' the player loses. I ran 10000 simulations and plotted them over a histogram to find on average after how many games a player can expect to lose. As shown below, I needed to perform a log transform on the data, as there are no negative values for games played.
 
 ![Alt text](assets/distribution.png)
