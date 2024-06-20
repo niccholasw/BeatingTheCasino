@@ -10,7 +10,9 @@ for i in range(0, sims):
 
 fig, axs = plt.subplots(2)
 fig.suptitle('Non-Logged vs Logged distribution')
+axs[0].xlabel('Number of games before bankrupt')
 axs[0].hist(result, bins=50)
+axs[1].xlabel('Logged number of games before bankrupt')
 axs[1].hist(np.log(result), bins=50)
 
 plt.show()
