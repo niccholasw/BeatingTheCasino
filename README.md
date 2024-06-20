@@ -16,7 +16,7 @@ Strategies so far:
 
 1. Basic Strategy - Mathematically the best moves as proved by mathemiticians over 50 years ago, consists of a table with dealers face card on x axis and players total count on the y axis. Simply look for your corresponding play and play it.
 
-![Alt text](assets\basic_strategy_chart.png)
+![Alt text](assets/basic_strategy_chart.png)
 
 3. Card Counting - +1 for cards 2-6, 0 for cards 7-9, -1 for cards > 9 and depending on total count there are more high count cards or low count cards in the deck signifying when to bet more or less.
 
