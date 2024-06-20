@@ -18,7 +18,7 @@ Strategies so far:
 
 ![Alt text](assets/basic_strategy_chart.png)
 
-32. Card Counting - +1 for cards 2-6, 0 for cards 7-9, -1 for cards > 9 and depending on total count there are more high count cards or low count cards in the deck signifying when to bet more or less.
+2. Card Counting - +1 for cards 2-6, 0 for cards 7-9, -1 for cards > 9 and depending on total count there are more high count cards or low count cards in the deck signifying when to bet more or less.
 
 NOTES:
 Starting bal -> $1000
